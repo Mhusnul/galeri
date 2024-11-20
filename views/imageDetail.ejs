@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Details</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1><%= image.title %></h1>
+  </header>
+
+  <div class="image-detail">
+    <img src="<%= image.imagePath %>" alt="<%= image.title %>">
+    <p><strong>Description:</strong> <%= image.description %></p>
+    <p><strong>Category:</strong> <%= image.category %></p>
+    <p><strong>Size:</strong> <%= image.metadata.size %> bytes</p>
+    <p><strong>Uploaded at:</strong> <%= image.metadata.uploadedAt.toLocaleString() %></p>
+  </div>
+
+  <footer>
+    <a href="/">Back to Gallery</a>
+  </footer>
+</body>
+</html>

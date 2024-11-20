@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>Image Gallery</h1>
+    <form action="/" method="get">
+      <input type="text" name="search" placeholder="Search images" value="<%= search %>">
+      <select name="category">
+        <option value="">All Categories</option>
+        <option value="Nature" <%= category === 'Nature' ? 'selected' : '' %>>Nature</option>
+        <option value="Urban" <%= category === 'Urban' ? 'selected' : '' %>>Urban</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <div class="gallery">
+    <% images.forEach(image => { %>
+      <div class="image">
+        <a href="/image/<%= image._id %>">
+          <img src="<%= image.imagePath %>" alt="<%= image.title %>">
+        </a>
+        <h3><%= image.title %></h3>
+        <p><%= image.category %></p>
+      </div>
+    <% }) %>
+  </div>
+
+  <footer>
+    <a href="/add">Add New Image</a>
+  </footer>
+</body>
+</html>
